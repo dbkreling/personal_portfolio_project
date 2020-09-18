@@ -25,7 +25,7 @@ SECRET_KEY = 'wgu4p6vwhc^0%+i23vqze7eopt=q8-3(z68=ywup3b8z6&=)+s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dbkrelingyahoo.pythonanywhere.com']
 
 
 # Application definition
