@@ -1,10 +1,14 @@
-<h2>Daniel has written {{ blogs.count }} blog{{ blogs.count|pluralize}}</h2>
+{% extends 'portfolio/base.html' %}
 
-{% for blog in blogs %}
-    <a href="{% url 'blog:detail' blog.id %}">
-        <h2>{{ blog.title }}</h2>
-    </a>
-    <p>{{ blog.date|date:"M dS Y"}}</p>
-    <p>{{ blog.description|truncatechars:35 }}</p>
-    <a href="{{ blog.url }}"">{{ blog.url }}</a>
-{% endfor %}
+{% block page_content %}
+    <h2>Daniel has written {{ blogs.count }} blog{{ blogs.count|pluralize}}</h2>
+
+    {% for blog in blogs %}
+        <a href="{% url 'blog:detail' blog.id %}">
+            <h2>{{ blog.title }}</h2>
+        </a>
+        <p>{{ blog.date|date:"M dS Y"}}</p>
+        <p>{{ blog.description|truncatechars:35 }}</p>
+        <a href="{{ blog.url }}"">{{ blog.url }}</a>
+    {% endfor %}
+{% endblock %}
