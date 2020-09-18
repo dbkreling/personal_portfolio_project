@@ -4,6 +4,7 @@
     <a href="{% url 'blog:detail' blog.id %}">
         <h2>{{ blog.title }}</h2>
     </a>
+    <p>{{ blog.date }}</p>
     <p>{{ blog.description }}</p>
     <a href="{{ blog.url }}"">{{ blog.url }}</a>
 {% endfor %}
