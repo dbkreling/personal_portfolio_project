@@ -1,28 +1,49 @@
-# personal_portfolio_project
-Small personal portfolio project created with Django
+# Personal Portfolio
 
-This website is hosted at pythonanywhere.com servers, at the
+This README will be working as a notebook that includes development information and notes, and the goal is to serve, along with the commit messages, as a source of knowledge for future Django projects.
+
+## Description
+
+This is a small personal portfolio project created with Django.<br>
+
+This project was created and developed based on Udemy course<br>
+> **"Django 3 - Full Stack Websites with Python Web Development"**, created and presented by Nick Walter.
+
+You can find it on **Udemy** by clicking [here](https://www.udemy.com/course/django-3-make-websites-with-python-tutorial-beginner-learn-bootstrap/)
+
+### Notes
+
+As a Django project, this project needs a running server to display its contents.
+
+First off, start the server by issuing:
+
+> python3 manage.py runserver
+
+After that, open the **localhost:8000** url in your browser to land on the Home page of the project.
+
+
+The website is hosted at pythonanywhere.com servers, at
 http://dbkrelingyahoo.pythonanywhere.com/
 
-Steps to configure pythonanywhere.com
+Steps to configure pythonanywhere.com for the first time
 
 - create an account
 - from the main dashboard, fire up a bash emulator console and clone your project from github
 - create a virtual env referencing python v3.8 as the python version:
 
-  $ mkvirtualenv --python=/usr/bin/python3.8 portfoliovenv
+        $ mkvirtualenv --python=/usr/bin/python3.8 portfoliovenv
 
     To access the virtual environment in next visits, enter:
 
-    $ workon portfoliovenv
+        $ workon portfoliovenv
 
 - run server migrate to create the database for your site:
 
-    $ python manage.py migrate
+        $ python manage.py migrate
 
 - install dependencies: django and pillow
 
-  $ pip install django pillow
+        $ pip install django pillow
 
 - from another browser tab, access the pythonanywhere dashboard, and go to 'Web' on the top right corner, and then:
 
@@ -45,5 +66,7 @@ your settings.py file. You can do it via github commit or via the pythonanywhere
 
 - Reload the site on the server via Web dashboard in python anywhere.
 
-Note: in order to have all your local Graphical Interface up and running in the server, you have to upload
-the database file to github/server as well, otherwise the data will not be there.
+### Adjustments
+ In order to have all your local Graphical Interface up and running in the server, you have to upload the database file to github/server as well, otherwise the data will not be there.
+
+Another important change we should do when the site is put in production is to set  'Debug = False' in the settings.py file of the pythonanywhere stack. This way, when a page is not found, there will be no debug information displayed on the screen.
