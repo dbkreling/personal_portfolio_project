@@ -49,12 +49,12 @@ Steps to configure pythonanywhere.com for the first time
 
     - Provide the absolute path of your source code;
     - Provide the working directory of the code of your website;
-    - Edit the wsgi.py file that the tool provides you (/var/www/dbkrelingyahoo_pythonanywhere_com_wsgi.py).
+    - Edit the wsgi.py file that the tool provides you (`/var/www/dbkrelingyahoo_pythonanywhere_com_wsgi.py`).
         Remove everything from the file except the part for Django (you can then remove the header of the section,
         leaving the imports at the top of the file).
-    - change the path (line 6) to the path of your project: path = '/home/dbkrelingyahoo/personal_portfolio_project'
+    - change the path (line 6) to the path of your project: `path = '/home/dbkrelingyahoo/personal_portfolio_project'`
     - change the reference to the settings file on line 10:
-        os.environ['DJANGO_SETTINGS_MODULE'] = 'personal_portfolio.settings'
+        `os.environ['DJANGO_SETTINGS_MODULE'] = 'personal_portfolio.settings'`
     - set the name of your virtual environment.
 
 - Go to the top of the dashboard and reload your server.
@@ -66,7 +66,13 @@ your settings.py file. You can do it via github commit or via the pythonanywhere
 
 - Reload the site on the server via Web dashboard in python anywhere.
 
-### Adjustments
- In order to have all your local Graphical Interface up and running in the server, you have to upload the database file to github/server as well, otherwise the data will not be there.
+### Adjustments After Going Live
+ 1) In order to have all your local Graphical Interface up and running in the server, you have to upload the database file to github/server as well, otherwise the data will not be there. An alternative is to manage the database in pythonanywhere.
 
-Another important change we should do when the site is put in production is to set  'Debug = False' in the settings.py file of the pythonanywhere stack. This way, when a page is not found, there will be no debug information displayed on the screen.
+2) Another important change we should do when the site is put in production is to set `Debug = False` in the settings.py file of the pythonanywhere stack. This way, when a page is not found, there will be no debug information displayed on the screen.
+
+3) In order to solve the static files, it is necessary to create a static root path (the same way as it is implemented for the media files) and then run `python manage.py collectstatic` from the pythonanywhere console. Django will collect all static files and put it in the directory specified in the STATIC_ROOT path. Also remember to run the command from the virtual environment you created above.
+
+4) In pythonanywhere web setup page, we need to specify where the static and media files are as an URL endpoint, so add the endpoints and the absolute paths for them at the appropriate place in pythonanywhere setup page.
+
+5) It is also a good idea to switch on the `Force HTTPS` button, in order to serve the website as https.
